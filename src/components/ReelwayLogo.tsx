@@ -61,7 +61,7 @@ export const ReelwayLogo: React.FC<ReelwayLogoProps> = ({
           <rect x="90" y="72" width="10" height="20" rx="5" fill="#FF1E27" />
         </g>
 
-        {/* ================= CENTER WORDMARK: REEL (WHITE) + WAY (RED) ================= */}
+        {/* ================= CENTER WORDMARK: REEL (DARK SLATE) + WAY (RED) ================= */}
         <g style={{ fontFamily: 'monospace, "JetBrains Mono", Courier, sans-serif' }}>
           <text
             x="230"
@@ -71,7 +71,7 @@ export const ReelwayLogo: React.FC<ReelwayLogoProps> = ({
             letterSpacing="2"
             textAnchor="middle"
           >
-            <tspan fill="#FFFFFF" style={{ fontFamily: 'monospace' }}>REEL</tspan>
+            <tspan fill="#0f172a" style={{ fontFamily: 'monospace' }}>REEL</tspan>
             <tspan fill="#FF1E27" style={{ fontFamily: 'monospace' }}>WAY</tspan>
           </text>
         </g>
@@ -100,7 +100,7 @@ export const ReelwayLogo: React.FC<ReelwayLogoProps> = ({
       </svg>
 
       {showSubtitle && (
-        <span className="text-[10px] font-mono tracking-widest text-zinc-400 uppercase hidden sm:inline-block border-l border-white/10 pl-3">
+        <span className="text-[10px] font-mono tracking-widest text-slate-500 uppercase hidden sm:inline-block border-l border-slate-300 pl-3">
           Creative + Growth
         </span>
       )}

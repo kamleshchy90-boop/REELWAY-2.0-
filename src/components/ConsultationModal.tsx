@@ -133,22 +133,22 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-2xl bg-[#0d0e15] border border-white/15 rounded-3xl overflow-hidden shadow-2xl z-10">
+      <div className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl z-10 text-slate-900">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-zinc-950">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
               <CalendarIcon className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-sm sm:text-base font-display font-bold text-white">
+              <h3 className="text-sm sm:text-base font-display font-bold text-slate-900">
                 Book Free 30-Min Creative Strategy Session
               </h3>
-              <p className="text-[11px] text-zinc-400 font-mono">
+              <p className="text-[11px] text-slate-500 font-mono">
                 With a Senior Creative Director & Performance Lead
               </p>
             </div>
@@ -156,7 +156,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full bg-white/10 hover:bg-rose-500 text-zinc-300 hover:text-white transition-colors"
+            className="p-2 rounded-full bg-slate-200 hover:bg-rose-600 text-slate-700 hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -166,25 +166,25 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
         <div className="p-6 sm:p-8">
           {isBooked ? (
             <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h4 className="text-2xl font-display font-bold text-white">
+              <h4 className="text-2xl font-display font-bold text-slate-900">
                 Consultation Confirmed!
               </h4>
-              <p className="text-sm text-zinc-300 max-w-md mx-auto">
-                We have received your strategy call request for <strong className="text-white">{name}</strong> ({email}). Our Creative Lead will reach out directly to coordinate your session.
+              <p className="text-sm text-slate-600 max-w-md mx-auto">
+                We have received your strategy call request for <strong className="text-slate-900">{name}</strong> ({email}). Our Creative Lead will reach out directly to coordinate your session.
               </p>
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 text-xs font-mono text-zinc-400 max-w-sm mx-auto space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 max-w-sm mx-auto space-y-2">
                 <div>A Google Meet invitation has been dispatched to your email.</div>
-                <div className="flex items-center justify-center gap-1.5 text-[11px] text-emerald-400 font-medium">
+                <div className="flex items-center justify-center gap-1.5 text-[11px] text-emerald-700 font-medium">
                   <Database className="w-3.5 h-3.5" />
                   <span>{backendStatus || 'Synced with SuperBase Cloud'}</span>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-xs font-bold text-white mt-4"
+                className="px-6 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-xs font-bold text-white mt-4 cursor-pointer"
               >
                 Close Window
               </button>
@@ -195,7 +195,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
               {/* Contact Info */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-zinc-300 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-1 font-semibold">
                     Your Name *
                   </label>
                   <input
@@ -204,11 +204,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Elena Rostova"
-                    className="w-full px-3.5 py-2.5 bg-black/60 border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-rose-500"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-rose-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-zinc-300 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-1 font-semibold">
                     Work Email *
                   </label>
                   <input
@@ -217,7 +217,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="elena@brand.com"
-                    className="w-full px-3.5 py-2.5 bg-black/60 border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-rose-500"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-rose-500"
                   />
                 </div>
               </div>
@@ -225,7 +225,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
               {/* Company & Topic */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-zinc-300 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-1 font-semibold">
                     Brand / Company
                   </label>
                   <input
@@ -233,17 +233,17 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     placeholder="Lumina Beauty"
-                    className="w-full px-3.5 py-2.5 bg-black/60 border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-rose-500"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-rose-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-zinc-300 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-1 font-semibold">
                     Discussion Topic
                   </label>
                   <select
                     value={topic}
                     onChange={(e) => setTopic(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-black/80 border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-rose-500"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:bg-white focus:border-rose-500"
                   >
                     <option value="3D Motion Graphics & Explainer">3D Motion Graphics & Explainer</option>
                     <option value="Short-Form Viral Video Sprints">Short-Form Viral Video Sprints</option>
@@ -256,8 +256,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
 
               {/* Day & Time Slot Selection */}
               <div>
-                <label className="block text-xs font-mono text-zinc-300 uppercase tracking-wider mb-2 font-medium flex items-center gap-1.5">
-                  <CalendarIcon className="w-3.5 h-3.5 text-amber-400" />
+                <label className="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-2 font-semibold flex items-center gap-1.5">
+                  <CalendarIcon className="w-3.5 h-3.5 text-amber-600" />
                   <span>Select Preferred Date:</span>
                 </label>
                 <div className="grid grid-cols-5 gap-2">
@@ -270,8 +270,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                         onClick={() => setSelectedDay(d.date)}
                         className={`p-2 rounded-xl text-center border transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-rose-600/30 border-rose-500 text-white shadow-md shadow-rose-600/20'
-                            : 'bg-black/50 border-white/10 text-zinc-400 hover:text-white hover:bg-white/5'
+                            ? 'bg-rose-50 border-rose-500 text-rose-700 font-bold shadow-sm'
+                            : 'bg-slate-50 border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                         }`}
                       >
                         <div className="text-[10px] uppercase font-mono">{d.day}</div>
@@ -283,8 +283,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-zinc-300 uppercase tracking-wider mb-2 font-medium flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-amber-400" />
+                <label className="block text-xs font-mono text-slate-700 uppercase tracking-wider mb-2 font-semibold flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-amber-600" />
                   <span>Select Time Window:</span>
                 </label>
                 <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
@@ -297,8 +297,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                         onClick={() => setSelectedTime(t)}
                         className={`py-2 px-1 rounded-xl text-center border text-[11px] font-mono transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-amber-500/20 border-amber-500 text-amber-300 font-bold shadow-md shadow-amber-500/10'
-                            : 'bg-black/50 border-white/10 text-zinc-400 hover:text-white hover:bg-white/5'
+                            ? 'bg-amber-50 border-amber-500 text-amber-900 font-bold shadow-sm'
+                            : 'bg-slate-50 border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                         }`}
                       >
                         {t}
@@ -309,7 +309,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
               </div>
 
               {errorMsg && (
-                <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-2 text-xs text-red-400">
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 flex items-center gap-2 text-xs text-red-600">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{errorMsg}</span>
                 </div>

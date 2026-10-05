@@ -22,24 +22,24 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 bg-[#08090d] relative overflow-hidden border-t border-white/5">
+    <section id="testimonials" className="py-24 bg-white relative overflow-hidden border-t border-slate-100">
       {/* Background Glow */}
-      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-rose-600/10 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-rose-500/5 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-rose-400 text-xs font-mono font-medium mb-4">
-              <Star className="w-3.5 h-3.5 fill-rose-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono font-medium mb-4 shadow-sm">
+              <Star className="w-3.5 h-3.5 fill-rose-600 text-rose-600" />
               <span>EXECUTIVE ENDORSEMENTS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-slate-900 tracking-tight leading-tight">
               Trusted By Founders & CMOs{' '}
               <span className="text-gradient-cinematic">Scaling To Millions.</span>
             </h2>
-            <p className="text-base text-zinc-400 mt-4">
+            <p className="text-base text-slate-600 mt-4 leading-relaxed">
               Real feedback from leaders who trusted REELWAY to elevate their visual brand and multiply advertising performance.
             </p>
           </div>
@@ -48,14 +48,14 @@ export const TestimonialsSection: React.FC = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={prevTestimonial}
-              className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-white/10 transition-colors"
+              className="p-3 rounded-full bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-300 shadow-sm transition-colors cursor-pointer"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="p-3 rounded-full bg-rose-600 hover:bg-rose-500 text-white shadow-lg shadow-rose-600/30 transition-colors"
+              className="p-3 rounded-full bg-rose-600 hover:bg-rose-500 text-white shadow-md shadow-rose-600/25 transition-colors cursor-pointer"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />
@@ -72,7 +72,7 @@ export const TestimonialsSection: React.FC = () => {
           ].map((item) => (
             <div
               key={`${item.id}-${currentIndex}`}
-              className="p-8 rounded-3xl bg-zinc-950/80 border border-white/10 hover:border-rose-500/40 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group shadow-xl animate-in fade-in duration-300"
+              className="p-8 rounded-3xl bg-white border border-slate-200 hover:border-rose-400 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl animate-in fade-in duration-300"
             >
               <div>
                 {/* 5-Star Rating & Quote Icon */}
@@ -82,33 +82,33 @@ export const TestimonialsSection: React.FC = () => {
                       <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <Quote className="w-6 h-6 text-zinc-700 group-hover:text-rose-500/40 transition-colors" />
+                  <Quote className="w-6 h-6 text-slate-300 group-hover:text-rose-400 transition-colors" />
                 </div>
 
-                <p className="text-sm sm:text-base text-zinc-200 leading-relaxed font-light mb-6 italic">
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal mb-6 italic">
                   "{item.quote}"
                 </p>
 
                 {/* Verified Metric Pill */}
-                <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400 mb-6 flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span className="truncate">{item.verifiedMetric}</span>
+                <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-700 mb-6 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+                  <span className="truncate font-semibold">{item.verifiedMetric}</span>
                 </div>
               </div>
 
               {/* Author Footer */}
-              <div className="pt-4 border-t border-white/5 flex items-center gap-3">
+              <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
                 <img
                   src={item.avatar}
                   alt={item.clientName}
-                  className="w-11 h-11 rounded-full object-cover border border-white/10"
+                  className="w-11 h-11 rounded-full object-cover border border-slate-200"
                 />
                 <div>
-                  <h4 className="text-sm font-display font-bold text-white">
+                  <h4 className="text-sm font-display font-bold text-slate-900">
                     {item.clientName}
                   </h4>
-                  <p className="text-xs text-zinc-400">
-                    {item.role}, <span className="text-zinc-300 font-medium">{item.company}</span>
+                  <p className="text-xs text-slate-500">
+                    {item.role}, <span className="text-slate-800 font-medium">{item.company}</span>
                   </p>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export const TestimonialsSection: React.FC = () => {
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               className={`h-2 rounded-full transition-all cursor-pointer ${
-                idx === currentIndex ? 'w-8 bg-rose-500' : 'w-2 bg-white/20 hover:bg-white/40'
+                idx === currentIndex ? 'w-8 bg-rose-600' : 'w-2 bg-slate-300 hover:bg-slate-400'
               }`}
               aria-label={`Go to testimonial ${idx + 1}`}
             />
@@ -131,14 +131,14 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Full Testimonial List Carousel Card for Extra Depth */}
-        <div className="mt-8 p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+        <div className="mt-8 p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Award className="w-5 h-5 text-rose-400" />
-            <span className="text-xs font-mono text-zinc-300">
+            <Award className="w-5 h-5 text-rose-600" />
+            <span className="text-xs font-mono text-slate-700">
               4.9/5 Average Rating across 500+ Video & Digital Marketing Campaigns
             </span>
           </div>
-          <span className="text-xs font-mono text-zinc-500 hidden sm:inline">
+          <span className="text-xs font-mono text-slate-500 hidden sm:inline">
             Verified Partner Reviews
           </span>
         </div>

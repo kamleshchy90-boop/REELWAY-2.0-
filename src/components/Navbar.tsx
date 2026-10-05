@@ -127,8 +127,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         id="main-navbar"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#090a0f]/92 backdrop-blur-xl border-b border-white/10 py-3 shadow-2xl shadow-black/60' 
-            : 'bg-gradient-to-b from-[#090a0f]/90 via-[#090a0f]/60 to-transparent py-5'
+            ? 'bg-white/92 backdrop-blur-xl border-b border-slate-200/80 py-3 shadow-md shadow-slate-900/5' 
+            : 'bg-white/80 backdrop-blur-md border-b border-slate-100 py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -143,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/[0.04] border border-white/[0.08] px-3.5 py-1.5 rounded-full backdrop-blur-md">
+          <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 border border-slate-200/80 px-3.5 py-1.5 rounded-full backdrop-blur-md">
             {navLinks.map((link) => {
               if (link.isSpecialOffer) {
                 return (
@@ -157,25 +157,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <button
                       type="button"
                       onClick={() => setOffersDropdownOpen(!offersDropdownOpen)}
-                      className="px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 flex items-center gap-1.5 text-amber-300 bg-gradient-to-r from-amber-500/20 to-rose-500/20 border border-amber-500/40 hover:border-amber-400 hover:from-amber-500/30 hover:to-rose-500/30 shadow-sm shadow-amber-500/10 cursor-pointer"
+                      className="px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 flex items-center gap-1.5 text-amber-900 bg-gradient-to-r from-amber-100 to-rose-100 border border-amber-300 hover:border-amber-400 hover:from-amber-200 hover:to-rose-200 shadow-sm shadow-amber-500/10 cursor-pointer"
                     >
-                      <Tag className="w-3.5 h-3.5 text-amber-400" />
+                      <Tag className="w-3.5 h-3.5 text-amber-600" />
                       <span>{link.label}</span>
-                      <ChevronDown className={`w-3 h-3 text-amber-400 transition-transform duration-200 ${offersDropdownOpen ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-3 h-3 text-amber-600 transition-transform duration-200 ${offersDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
 
                     {/* Desktop Dropdown Flyout */}
                     {offersDropdownOpen && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[420px] p-3.5 bg-[#0e1017]/98 backdrop-blur-2xl border border-amber-500/40 rounded-2xl shadow-2xl shadow-black/80 z-50 animate-in fade-in zoom-in-95 duration-150">
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[420px] p-3.5 bg-white/98 backdrop-blur-2xl border border-amber-300 rounded-2xl shadow-2xl shadow-slate-900/15 z-50 animate-in fade-in zoom-in-95 duration-150">
                         
-                        <div className="flex items-center justify-between pb-2.5 mb-2 border-b border-white/10 px-1">
+                        <div className="flex items-center justify-between pb-2.5 mb-2 border-b border-slate-100 px-1">
                           <div className="flex items-center gap-2">
-                            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                            <span className="text-xs font-display font-black text-amber-300 uppercase tracking-wider">
+                            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                            <span className="text-xs font-display font-black text-amber-900 uppercase tracking-wider">
                               Favorite Festive Offers
                             </span>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold border border-rose-500/30">
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-100 text-rose-700 font-bold border border-rose-200">
                             UP TO 15% OFF
                           </span>
                         </div>
@@ -187,18 +187,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                               key={offer.id}
                               type="button"
                               onClick={() => handleClaimOffer(offer)}
-                              className="w-full text-left p-2 rounded-xl bg-white/[0.03] hover:bg-amber-500/15 border border-white/5 hover:border-amber-500/40 transition-all flex items-center justify-between group cursor-pointer"
+                              className="w-full text-left p-2 rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-100 hover:border-amber-300 transition-all flex items-center justify-between group cursor-pointer"
                             >
                               <div className="flex items-center gap-2 min-w-0">
                                 <span className="text-base shrink-0">{offer.emoji}</span>
                                 <div className="truncate">
-                                  <span className="text-xs font-semibold text-zinc-200 group-hover:text-amber-300 transition-colors">
+                                  <span className="text-xs font-semibold text-slate-800 group-hover:text-amber-900 transition-colors">
                                     {offer.name}
                                   </span>
                                 </div>
                               </div>
                               <div className="flex items-center gap-1.5 shrink-0 pl-2">
-                                <span className="text-[11px] font-mono font-black text-rose-400 bg-rose-500/15 group-hover:bg-rose-500 group-hover:text-white transition-colors px-2 py-0.5 rounded-lg border border-rose-500/30">
+                                <span className="text-[11px] font-mono font-black text-rose-600 bg-rose-50 group-hover:bg-rose-600 group-hover:text-white transition-colors px-2 py-0.5 rounded-lg border border-rose-200">
                                   {offer.discount}
                                 </span>
                               </div>
@@ -206,9 +206,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                           ))}
                         </div>
 
-                        <div className="mt-2.5 pt-2 border-t border-white/10 px-1 flex items-center justify-between text-[11px] text-zinc-400 font-mono">
+                        <div className="mt-2.5 pt-2 border-t border-slate-100 px-1 flex items-center justify-between text-[11px] text-slate-500 font-mono">
                           <span>Click any offer to apply instant discount</span>
-                          <span className="text-amber-400 font-bold flex items-center gap-1">
+                          <span className="text-amber-600 font-bold flex items-center gap-1">
                             Claim <ArrowUpRight className="w-3 h-3" />
                           </span>
                         </div>
@@ -224,7 +224,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 text-zinc-300 hover:text-white hover:bg-white/10"
+                  className="px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 text-slate-600 hover:text-slate-900 hover:bg-white"
                 >
                   <span>{link.label}</span>
                 </a>
@@ -238,9 +238,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenConsultation}
               id="nav-consult-btn"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-zinc-200 hover:text-white bg-zinc-800/80 hover:bg-zinc-700/80 border border-white/10 rounded-full transition-all duration-200 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-300 rounded-full shadow-sm transition-all duration-200 cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5 text-amber-400" />
+              <Calendar className="w-3.5 h-3.5 text-amber-500" />
               <span>Book Call</span>
             </button>
 
@@ -269,7 +269,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-white/5 border border-white/10 text-zinc-300 hover:text-white"
+              className="p-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -283,23 +283,23 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div 
           id="mobile-drawer" 
-          className="fixed inset-0 z-40 bg-[#090a0f]/95 backdrop-blur-2xl flex flex-col pt-24 px-6 pb-8 lg:hidden animate-in fade-in duration-200 overflow-y-auto"
+          className="fixed inset-0 z-40 bg-white/98 backdrop-blur-2xl flex flex-col pt-24 px-6 pb-8 lg:hidden animate-in fade-in duration-200 overflow-y-auto text-slate-900"
         >
           <div className="flex flex-col gap-2 mb-8">
             {navLinks.map((link) => {
               if (link.isSpecialOffer) {
                 return (
-                  <div key={link.label} className="border-b border-white/5 py-2">
+                  <div key={link.label} className="border-b border-slate-100 py-2">
                     <button
                       type="button"
                       onClick={() => setMobileOffersExpanded(!mobileOffersExpanded)}
-                      className="w-full text-lg font-display font-semibold transition-colors flex items-center justify-between text-amber-300 font-bold"
+                      className="w-full text-lg font-display font-semibold transition-colors flex items-center justify-between text-amber-800 font-bold"
                     >
                       <div className="flex items-center gap-2">
-                        <Tag className="w-4 h-4 text-amber-400" />
+                        <Tag className="w-4 h-4 text-amber-500" />
                         <span>{link.label}</span>
                       </div>
-                      <ChevronDown className={`w-4 h-4 text-amber-400 transition-transform ${mobileOffersExpanded ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 text-amber-500 transition-transform ${mobileOffersExpanded ? 'rotate-180' : ''}`} />
                     </button>
 
                     {/* Mobile Expanded List */}
@@ -310,13 +310,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                             key={offer.id}
                             type="button"
                             onClick={() => handleClaimOffer(offer)}
-                            className="w-full flex items-center justify-between p-2.5 rounded-xl bg-white/5 text-xs text-left hover:bg-amber-500/20 transition-all border border-white/5"
+                            className="w-full flex items-center justify-between p-2.5 rounded-xl bg-slate-50 text-xs text-left hover:bg-amber-50 transition-all border border-slate-200"
                           >
                             <div className="flex items-center gap-2">
                               <span>{offer.emoji}</span>
-                              <span className="text-zinc-200 font-medium">{offer.name}</span>
+                              <span className="text-slate-800 font-medium">{offer.name}</span>
                             </div>
-                            <span className="text-rose-400 font-mono font-bold">{offer.discount}</span>
+                            <span className="text-rose-600 font-mono font-bold">{offer.discount}</span>
                           </button>
                         ))}
                       </div>
@@ -330,10 +330,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-lg font-display font-semibold py-2.5 border-b border-white/5 transition-colors flex items-center justify-between text-zinc-300 hover:text-rose-400"
+                  className="text-lg font-display font-semibold py-2.5 border-b border-slate-100 transition-colors flex items-center justify-between text-slate-800 hover:text-rose-600"
                 >
                   <span>{link.label}</span>
-                  <ArrowUpRight className="w-4 h-4 text-zinc-500" />
+                  <ArrowUpRight className="w-4 h-4 text-slate-400" />
                 </a>
               );
             })}
@@ -345,9 +345,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenShowreel();
               }}
-              className="w-full py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white font-medium text-sm flex items-center justify-center gap-2"
+              className="w-full py-3 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl text-slate-900 font-medium text-sm flex items-center justify-center gap-2"
             >
-              <Play className="w-4 h-4 fill-rose-400 text-rose-400" />
+              <Play className="w-4 h-4 fill-rose-600 text-rose-600" />
               <span>Watch 2026 Showreel</span>
             </button>
 
@@ -356,7 +356,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenConsultation();
               }}
-              className="w-full py-3 bg-zinc-800 border border-white/10 rounded-xl text-white font-medium text-sm flex items-center justify-center gap-2"
+              className="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-medium text-sm flex items-center justify-center gap-2 shadow-sm"
             >
               <Calendar className="w-4 h-4 text-amber-400" />
               <span>Book Free 30-Min Strategy Call</span>

@@ -45,34 +45,34 @@ export const WhatsAppFloating: React.FC = () => {
       {isOpen && (
         <div 
           ref={popupRef}
-          className="mb-3 w-80 sm:w-96 rounded-3xl bg-zinc-950 border border-emerald-500/40 shadow-2xl shadow-black/90 p-5 animate-in fade-in slide-in-from-bottom-5 duration-200"
+          className="mb-3 w-80 sm:w-96 rounded-3xl bg-white border border-emerald-200 shadow-2xl shadow-slate-900/15 p-5 animate-in fade-in slide-in-from-bottom-5 duration-200"
         >
           
           {/* Header */}
-          <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
             <div className="flex items-center gap-2.5">
-              <div className="relative w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                <MessageCircle className="w-4 h-4 fill-emerald-400" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 absolute -top-0.5 -right-0.5 border-2 border-zinc-950 animate-pulse" />
+              <div className="relative w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                <MessageCircle className="w-4 h-4 fill-emerald-600" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 absolute -top-0.5 -right-0.5 border-2 border-white animate-pulse" />
               </div>
               <div>
-                <h4 className="text-xs font-display font-bold text-white">
+                <h4 className="text-xs font-display font-bold text-slate-900">
                   REELWAY Strategy Desk
                 </h4>
-                <span className="text-[10px] font-mono text-emerald-400">
+                <span className="text-[10px] font-mono text-emerald-600 font-medium">
                   Online &bull; Avg reply: 5 mins
                 </span>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded-lg text-zinc-400 hover:text-white"
+              className="p-1 rounded-lg text-slate-400 hover:text-slate-700 cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <p className="text-xs text-zinc-300 mb-3">
+          <p className="text-xs text-slate-600 mb-3 font-normal">
             👋 Hey there! Need a fast quote or want to see examples relevant to your industry?
           </p>
 
@@ -84,7 +84,7 @@ export const WhatsAppFloating: React.FC = () => {
                 onClick={() => {
                   setMessage(qp);
                 }}
-                className="w-full text-left p-2 rounded-xl bg-white/5 hover:bg-emerald-950/40 hover:border-emerald-500/30 border border-white/5 text-[11px] text-zinc-300 hover:text-white transition-colors"
+                className="w-full text-left p-2 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:border-emerald-300 border border-slate-200 text-[11px] text-slate-700 hover:text-emerald-900 transition-colors cursor-pointer"
               >
                 {qp}
               </button>
@@ -99,11 +99,11 @@ export const WhatsAppFloating: React.FC = () => {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message..."
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              className="flex-grow px-3 py-2 bg-black/60 border border-white/10 rounded-xl text-xs text-white placeholder:text-zinc-500 focus:outline-none focus:border-emerald-500"
+              className="flex-grow px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white"
             />
             <button
               onClick={handleSend}
-              className="p-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg transition-colors"
+              className="p-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition-colors cursor-pointer"
             >
               <Send className="w-4 h-4" />
             </button>

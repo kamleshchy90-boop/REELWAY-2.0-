@@ -1,14 +1,14 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { 
   X, 
   Play, 
-  Sparkles, 
+  ExternalLink, 
   CheckCircle2, 
   TrendingUp, 
-  Calendar, 
   Clock, 
-  ArrowRight, 
-  Layers 
+  Calendar,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
 import { ProjectItem } from '../types';
 
@@ -27,11 +27,15 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        onClose();
+      }
     };
     if (project) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'auto';
     }
     return () => {
       document.body.style.overflow = 'auto';
@@ -42,25 +46,25 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 md:p-10 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 md:p-10 animate-in fade-in duration-200">
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-5xl bg-[#0d0e15] border border-white/15 rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col max-h-[92vh]">
+      <div className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col max-h-[92vh] text-slate-900">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-zinc-950">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50">
           <div className="flex items-center gap-3">
-            <span className="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 text-xs font-mono font-bold uppercase">
+            <span className="px-2.5 py-1 rounded bg-rose-50 text-rose-700 text-xs font-mono font-bold uppercase border border-rose-200">
               {project.categoryLabel}
             </span>
-            <h3 className="text-sm sm:text-base font-display font-bold text-white truncate max-w-md">
+            <h3 className="text-sm sm:text-base font-display font-bold text-slate-900 truncate max-w-md">
               {project.title}
             </h3>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full bg-white/10 hover:bg-rose-500 text-zinc-300 hover:text-white transition-colors"
+            className="p-2 rounded-full bg-slate-200 hover:bg-rose-600 text-slate-700 hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -70,7 +74,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
           
           {/* Media Player */}
-          <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black border border-white/10 flex items-center justify-center">
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black border border-slate-200 flex items-center justify-center shadow-lg">
             {project.videoPreviewUrl.includes('instagram.com') ? (
               <iframe
                 src={(() => {
@@ -122,23 +126,23 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             
             <div className="md:col-span-2 space-y-4">
               <div>
-                <span className="text-xs font-mono text-zinc-400">
-                  Client: <strong className="text-white">{project.client}</strong> &bull; {project.year}
+                <span className="text-xs font-mono text-slate-500">
+                  Client: <strong className="text-slate-900">{project.client}</strong> &bull; {project.year}
                 </span>
-                <h4 className="text-xl sm:text-2xl font-display font-bold text-white mt-1">
+                <h4 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mt-1">
                   {project.summary}
                 </h4>
               </div>
 
               {/* Deliverables */}
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 block mb-2 font-semibold">
+                <span className="text-xs font-mono uppercase tracking-wider text-slate-500 block mb-2 font-semibold">
                   Scope & Deliverables:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {project.deliverables.map((del, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300 p-2.5 rounded-xl bg-white/[0.02] border border-white/5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+                    <div key={idx} className="flex items-center gap-2 text-xs text-slate-700 p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-rose-600 shrink-0" />
                       <span>{del}</span>
                     </div>
                   ))}
@@ -147,18 +151,18 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             </div>
 
             {/* Right Metric Card */}
-            <div className="p-6 rounded-2xl bg-zinc-950 border border-rose-500/30 flex flex-col justify-between">
+            <div className="p-6 rounded-2xl bg-rose-50/70 border border-rose-200 flex flex-col justify-between shadow-sm">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block mb-1 font-bold">
                   Featured Client Metric:
                 </span>
-                <div className="text-3xl font-display font-extrabold text-rose-400 font-mono-data">
+                <div className="text-3xl font-display font-extrabold text-rose-600 font-mono-data">
                   {project.metrics.value}
                 </div>
-                <div className="text-xs font-semibold text-white mt-1">
+                <div className="text-xs font-semibold text-slate-900 mt-1">
                   {project.metrics.label}
                 </div>
-                <div className="text-[11px] text-zinc-400 mt-2 font-mono">
+                <div className="text-[11px] text-slate-500 mt-2 font-mono">
                   Verified Performance Asset
                 </div>
               </div>
@@ -168,7 +172,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                   onClose();
                   onNavigateContact();
                 }}
-                className="w-full mt-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-rose-600/30 flex items-center justify-center gap-2"
+                className="w-full mt-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-rose-600/30 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Inquire Similar Project</span>
                 <ArrowRight className="w-3.5 h-3.5" />

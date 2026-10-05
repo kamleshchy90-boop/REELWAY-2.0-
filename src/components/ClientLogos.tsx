@@ -36,7 +36,7 @@ export const FinsSolarLogo: React.FC<{ className?: string }> = ({ className = 'h
       fontFamily="system-ui, -apple-system, sans-serif"
       fontSize="72"
       fontWeight="900"
-      fill="#FFFFFF"
+      fill="#0f172a"
       letterSpacing="-2"
     >
       Fins
@@ -98,14 +98,14 @@ export const GreenEnergyLogo: React.FC<{ className?: string }> = ({ className = 
     </text>
 
     {/* Subtitle with borders */}
-    <line x1="10" y1="120" x2="410" y2="120" stroke="#22C55E" strokeWidth="2" />
+    <line x1="10" y1="120" x2="410" y2="120" stroke="#16A34A" strokeWidth="2" />
     <text
       x="210"
       y="138"
       fontFamily="system-ui, sans-serif"
       fontSize="16"
       fontWeight="800"
-      fill="#86EFAC"
+      fill="#15803D"
       letterSpacing="7"
       textAnchor="middle"
     >
@@ -146,7 +146,7 @@ export const DhiyoAiLogo: React.FC<{ className?: string }> = ({ className = 'h-1
       fontFamily="system-ui, sans-serif"
       fontSize="52"
       fontWeight="900"
-      fill="#FFFFFF"
+      fill="#0f172a"
     >
       Dhiyo AI
     </text>
@@ -187,9 +187,9 @@ export const EasySellLogo: React.FC<{ className?: string }> = ({ className = 'h-
     <polygon points="10,85 55,10 55,85" fill="#F59E0B" />
     
     {/* E bars & EASYSELL Text */}
-    <rect x="58" y="10" width="38" height="18" fill="#FFFFFF" />
-    <rect x="58" y="44" width="38" height="16" fill="#FFFFFF" />
-    <rect x="58" y="73" width="38" height="18" fill="#FFFFFF" />
+    <rect x="58" y="10" width="38" height="18" fill="#0f172a" />
+    <rect x="58" y="44" width="38" height="16" fill="#0f172a" />
+    <rect x="58" y="73" width="38" height="18" fill="#0f172a" />
 
     <text
       x="102"
@@ -197,7 +197,7 @@ export const EasySellLogo: React.FC<{ className?: string }> = ({ className = 'h-
       fontFamily="system-ui, sans-serif"
       fontSize="72"
       fontWeight="900"
-      fill="#FFFFFF"
+      fill="#0f172a"
       letterSpacing="1"
     >
       ASYSELL
@@ -267,14 +267,14 @@ export const DigitalWealthLogo: React.FC<{ className?: string }> = ({ className 
     </text>
 
     {/* Subtitle with top rule */}
-    <line x1="10" y1="135" x2="420" y2="135" stroke="#38BDF8" strokeWidth="1.5" />
+    <line x1="10" y1="135" x2="420" y2="135" stroke="#0284C7" strokeWidth="1.5" />
     <text
       x="215"
       y="152"
       fontFamily="monospace"
       fontSize="12"
       fontWeight="700"
-      fill="#86EFAC"
+      fill="#15803D"
       letterSpacing="2.5"
       textAnchor="middle"
     >
@@ -313,7 +313,7 @@ export const NewtechLogo: React.FC<{ className?: string }> = ({ className = 'h-1
       fontFamily="system-ui, sans-serif"
       fontSize="48"
       fontWeight="900"
-      fill="#FFFFFF"
+      fill="#0f172a"
       letterSpacing="2"
       textAnchor="middle"
     >
@@ -327,7 +327,7 @@ export const NewtechLogo: React.FC<{ className?: string }> = ({ className = 'h-1
       fontFamily="system-ui, sans-serif"
       fontSize="16"
       fontWeight="900"
-      fill="#4ADE80"
+      fill="#16A34A"
       letterSpacing="4"
       textAnchor="middle"
     >

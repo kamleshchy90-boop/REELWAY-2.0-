@@ -707,6 +707,15 @@ export const FAQ_DATA: FaqItem[] = [
   }
 ];
 
+export const JOURNAL_CATEGORIES: string[] = [
+  'All',
+  'Video Marketing',
+  'Social Media',
+  'Motion Graphics',
+  'Paid Media',
+  'Agency Growth'
+];
+
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
     id: 'blog-1',
