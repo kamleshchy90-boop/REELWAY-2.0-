@@ -148,28 +148,6 @@ export const SERVICES_DATA: ServiceItem[] = [
       label: 'Multi-Channel Consistency Score'
     },
     gradient: 'from-purple-500/20 via-pink-500/10 to-transparent'
-  },
-  {
-    id: 'seo-content',
-    title: 'SEO & Organic Search Authority',
-    tagline: 'Capture high-intent buyers through data-driven search architecture.',
-    badge: 'Compounding Traffic',
-    iconName: 'Search',
-    description: 'Technical SEO audits, semantic keyword mapping, high-ranking multimedia content hubs, and YouTube SEO optimization that fuel inbound organic pipeline.',
-    deliverables: [
-      'Comprehensive Technical SEO & Speed Optimization',
-      'YouTube Video SEO & Metadata Ranking Strategy',
-      'High-Intent Keyword Architecture & Pillar Content',
-      'Semantic Search & AI Engine Optimization (GEO/AIO)',
-      'Authoritative Backlink Acquisition Strategies',
-      'Core Web Vitals Performance Tuning'
-    ],
-    technologies: ['Ahrefs', 'Semrush', 'Screaming Frog', 'Google Search Console', 'SurferSEO'],
-    highlightMetric: {
-      value: '+310%',
-      label: 'Average Inbound Organic Traffic Growth'
-    },
-    gradient: 'from-cyan-500/20 via-blue-500/10 to-transparent'
   }
 ];
 

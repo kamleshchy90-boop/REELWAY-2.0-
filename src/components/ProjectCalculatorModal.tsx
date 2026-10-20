@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   X, 
   Calculator, 
@@ -11,11 +11,13 @@ import {
 } from 'lucide-react';
 
 interface ProjectCalculatorModalProps {
+  isOpen: boolean;
   onClose: () => void;
   onApplyScope: (scopeSummary: string, suggestedPackage: string) => void;
 }
 
 export const ProjectCalculatorModal: React.FC<ProjectCalculatorModalProps> = ({
+  isOpen,
   onClose,
   onApplyScope
 }) => {
@@ -23,6 +25,24 @@ export const ProjectCalculatorModal: React.FC<ProjectCalculatorModalProps> = ({
   const [motionLevel, setMotionLevel] = useState<'none' | '2d' | '3d'>('2d');
   const [adManagement, setAdManagement] = useState<boolean>(true);
   const [scripting, setScripting] = useState<boolean>(true);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   // Dynamic recommendation logic
   let suggestedPackage = 'REELWAY GROW';

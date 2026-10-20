@@ -14,11 +14,10 @@ import {
 } from 'lucide-react';
 import { PORTFOLIO_PROJECTS } from '../data/reelwayData';
 import { ProjectItem } from '../types';
-import { BeforeAfterSlider } from './BeforeAfterSlider';
 
 interface PortfolioSectionProps {
   onOpenProjectModal: (project: ProjectItem) => void;
-  onOpenShowreel: () => void;
+  onOpenShowreel?: () => void;
 }
 
 const FILTER_TABS = [
@@ -29,8 +28,7 @@ const FILTER_TABS = [
 ];
 
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ 
-  onOpenProjectModal, 
-  onOpenShowreel 
+  onOpenProjectModal 
 }) => {
   const [activeTab, setActiveTab] = useState<string>('all');
   const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null);
@@ -48,28 +46,18 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono font-medium mb-4 shadow-sm">
-              <Film className="w-3.5 h-3.5 text-rose-600" />
-              <span>CURATED WORK REEL</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-slate-900 tracking-tight leading-tight">
-              Crafted For Impact.{' '}
-              <span className="text-gradient-cinematic">Validated By Metrics.</span>
-            </h2>
-            <p className="text-base text-slate-600 mt-4 leading-relaxed">
-              Explore our recent 3D motion reveals, viral commercial reels, and high-performance ad campaigns engineered for hyper-growth brands.
-            </p>
+        <div className="max-w-2xl mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono font-medium mb-4 shadow-sm">
+            <Film className="w-3.5 h-3.5 text-rose-600" />
+            <span>CURATED WORK REEL</span>
           </div>
-
-          <button
-            onClick={onOpenShowreel}
-            className="self-start md:self-auto px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-medium text-xs border border-slate-300 flex items-center gap-2 transition-all hover:border-rose-400 shrink-0 shadow-sm cursor-pointer"
-          >
-            <Play className="w-3.5 h-3.5 fill-rose-600 text-rose-600" />
-            <span>Play 2026 Showreel</span>
-          </button>
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-slate-900 tracking-tight leading-tight">
+            Crafted For Impact.{' '}
+            <span className="text-gradient-cinematic">Validated By Metrics.</span>
+          </h2>
+          <p className="text-base text-slate-600 mt-4 leading-relaxed">
+            Explore our recent 3D motion reveals, viral commercial reels, and high-performance ad campaigns engineered for hyper-growth brands.
+          </p>
         </div>
 
         {/* Filter Tabs Bar */}
@@ -174,9 +162,6 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             </div>
           ))}
         </div>
-
-        {/* Embedded Before / After Interactive Slider */}
-        <BeforeAfterSlider />
 
       </div>
     </section>

@@ -17,7 +17,6 @@ import { FinalCtaSection } from './components/FinalCtaSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { WhatsAppFloating } from './components/WhatsAppFloating';
-import { ConsultationModal } from './components/ConsultationModal';
 import { ProjectCalculatorModal } from './components/ProjectCalculatorModal';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { PrivacyTermsModal } from './components/PrivacyTermsModal';
@@ -26,7 +25,6 @@ import { CASE_STUDIES_DATA } from './data/reelwayData';
 
 export default function App() {
   const [showreelOpen, setShowreelOpen] = useState(false);
-  const [consultationOpen, setConsultationOpen] = useState(false);
   const [calculatorOpen, setCalculatorOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [prefilledService, setPrefilledService] = useState<string>('');
@@ -88,7 +86,7 @@ export default function App() {
       
       {/* Sticky Top Navigation Bar */}
       <Navbar
-        onOpenConsultation={() => setConsultationOpen(true)}
+        onOpenConsultation={() => navigateToContact('Free Consultation')}
         onOpenShowreel={() => setShowreelOpen(true)}
         onNavigateContact={() => navigateToContact()}
         onSelectOffer={(offerName, discount) => navigateToContact(undefined, `${offerName} (${discount})`)}
@@ -99,7 +97,7 @@ export default function App() {
         {/* 1. Hero Section with Video Showreel Player */}
         <Hero
           onOpenShowreel={() => setShowreelOpen(true)}
-          onOpenConsultation={() => setConsultationOpen(true)}
+          onOpenConsultation={() => navigateToContact('Free Consultation')}
           onNavigateContact={() => navigateToContact()}
         />
 
@@ -154,7 +152,7 @@ export default function App() {
         {/* 12. Final High-Impact CTA */}
         <FinalCtaSection
           onStartProject={() => navigateToContact()}
-          onBookConsultation={() => setConsultationOpen(true)}
+          onBookConsultation={() => navigateToContact('Free Consultation')}
           onChatWhatsApp={openWhatsApp}
         />
 
@@ -176,11 +174,6 @@ export default function App() {
         isOpen={showreelOpen}
         onClose={() => setShowreelOpen(false)}
         onNavigateContact={() => navigateToContact()}
-      />
-
-      <ConsultationModal
-        isOpen={consultationOpen}
-        onClose={() => setConsultationOpen(false)}
       />
 
       <ProjectCalculatorModal

@@ -151,31 +151,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           })}
         </div>
 
-        {/* Bottom Fast Track Banner */}
-        <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="flex items-center gap-4 text-left">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-amber-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-rose-500/20">
-              <Sliders className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-lg font-display font-bold text-white">
-                Need a Custom Hybrid Creative Package?
-              </h4>
-              <p className="text-sm text-slate-300">
-                We design bespoke sprint scopes combining short-form editing, 3D motion graphics, and paid media buying.
-              </p>
-            </div>
-          </div>
-
-          <button
-            onClick={() => onSelectService('Custom Hybrid Package')}
-            className="px-6 py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-display font-bold text-sm shadow-lg shadow-rose-600/30 shrink-0 transition-all flex items-center gap-2 cursor-pointer"
-          >
-            <span>Request Custom Scope</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-
       </div>
     </section>
   );
