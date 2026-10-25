@@ -97,7 +97,7 @@ Please verify our transaction and initiate the creative onboarding protocol!`;
 
   return (
     <div className="min-h-screen bg-slate-50/70 text-slate-800 pt-28 pb-24">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Breadcrumb & Action Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4 py-4 mb-8 border-b border-slate-200">
@@ -309,10 +309,10 @@ Please verify our transaction and initiate the creative onboarding protocol!`;
           </div>
         ) : (
           /* PAYMENT SUBMISSION & DETAILS VIEW */
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             
-            {/* Left 7 Cols: Payment Methods (QR Code, UPI, REELWAY Number) */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* Left Col: Payment Methods (QR Code, UPI, REELWAY Number) */}
+            <div className="w-full space-y-6">
               
               {/* Header Box */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md relative overflow-hidden">
@@ -483,39 +483,13 @@ Please verify our transaction and initiate the creative onboarding protocol!`;
 
               </div>
 
-              {/* NEFT / Bank Account Details Accordion */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 text-xs text-slate-700">
-                <div className="flex items-center gap-2 mb-3">
-                  <Building className="w-4 h-4 text-slate-600" />
-                  <span className="font-display font-bold text-slate-900">
-                    Direct Bank Transfer (NEFT / IMPS / RTGS)
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 gap-2 font-mono text-[11px] bg-slate-50 p-3.5 rounded-xl border border-slate-200">
-                  <div>
-                    <span className="text-slate-400 block">Beneficiary Name:</span>
-                    <strong className="text-slate-900">REELWAY CREATIVE STUDIO</strong>
-                  </div>
-                  <div>
-                    <span className="text-slate-400 block">Bank Helpline:</span>
-                    <strong className="text-slate-900">{REELWAY_NUMBER}</strong>
-                  </div>
-                  <div>
-                    <span className="text-slate-400 block">Account Type:</span>
-                    <strong className="text-slate-900">Current Business Account</strong>
-                  </div>
-                  <div>
-                    <span className="text-slate-400 block">Payment Purpose:</span>
-                    <strong className="text-slate-900">{selectedPkg.name} Retainer</strong>
-                  </div>
-                </div>
-              </div>
-
             </div>
 
-            {/* Right 5 Cols: "Payment Received" Form & Verification */}
-            <div className="lg:col-span-5">
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl sticky top-28">
+            {/* Right Col: "Payment Received" Form & Bank Details (Identical Width & Balanced Height) */}
+            <div className="w-full space-y-6">
+              
+              {/* Payment Received Form Card */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md">
                 
                 <div className="flex items-center gap-2.5 mb-2">
                   <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
@@ -622,6 +596,35 @@ Please verify our transaction and initiate the creative onboarding protocol!`;
                 </form>
 
               </div>
+
+              {/* Direct Bank Transfer (NEFT / IMPS / RTGS) Card */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md text-xs text-slate-700">
+                <div className="flex items-center gap-2 mb-3">
+                  <Building className="w-4 h-4 text-slate-600" />
+                  <span className="font-display font-bold text-slate-900">
+                    Direct Bank Transfer (NEFT / IMPS / RTGS)
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 gap-3 font-mono text-[11px] bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                  <div>
+                    <span className="text-slate-400 block mb-0.5">Beneficiary Name:</span>
+                    <strong className="text-slate-900">REELWAY CREATIVE STUDIO</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block mb-0.5">Bank Helpline:</span>
+                    <strong className="text-slate-900">{REELWAY_NUMBER}</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block mb-0.5">Account Type:</span>
+                    <strong className="text-slate-900">Current Business Account</strong>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block mb-0.5">Payment Purpose:</span>
+                    <strong className="text-slate-900">{selectedPkg.name} Retainer</strong>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>

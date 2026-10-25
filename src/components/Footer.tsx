@@ -54,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenPackagesPage 
   ];
 
   return (
-    <footer id="main-footer" className="bg-slate-50 text-slate-600 border-t border-slate-200 pt-20 pb-12 relative overflow-hidden">
+    <footer id="main-footer" className="w-full bg-slate-50 text-slate-600 border-t border-slate-200 pt-20 pb-12 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

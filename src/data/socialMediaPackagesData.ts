@@ -68,7 +68,6 @@ export const SOCIAL_MEDIA_PACKAGES: SocialMediaPackage[] = [
       '4 Motion Graphics Reels',
       'Captions & Hashtags',
       'Basic Monthly Content Plan',
-      'Instagram, Facebook & WhatsApp Support',
       'Basic Customer Query Responses'
     ],
     platforms: ['Instagram', 'Facebook', 'WhatsApp']
@@ -95,7 +94,6 @@ export const SOCIAL_MEDIA_PACKAGES: SocialMediaPackage[] = [
       '8 Edited Reels',
       '2 Animated Promotional Creatives',
       'Captions & Hashtags',
-      'Instagram, Facebook, WhatsApp & Threads Support',
       'Basic Customer Query Responses',
       'Google Business Profile Management'
     ],
@@ -125,7 +123,6 @@ export const SOCIAL_MEDIA_PACKAGES: SocialMediaPackage[] = [
       '4 Stories or Promotional Banners',
       'Monthly Content Calendar',
       'Basic Social Media Account Management',
-      'Instagram, Facebook, WhatsApp, Threads & LinkedIn Support',
       'Basic Meta Ads Management',
       'Basic Customer Query Responses'
     ],
@@ -156,7 +153,6 @@ export const SOCIAL_MEDIA_PACKAGES: SocialMediaPackage[] = [
       '12 Stories & Advertising Creatives',
       'Monthly Content Strategy',
       'Basic Performance Report',
-      'Instagram, Facebook, WhatsApp, Threads, LinkedIn & YouTube Support',
       'Basic Customer Query Responses',
       'Basic Meta Ads Management',
       'Basic Google Ads Management'
@@ -189,7 +185,6 @@ export const SOCIAL_MEDIA_PACKAGES: SocialMediaPackage[] = [
       'Monthly Marketing Strategy',
       'Monthly Performance Report',
       'Priority Creative Support',
-      'Instagram, Facebook, WhatsApp, Threads, LinkedIn, YouTube & X (Twitter) Support',
       'Basic Meta Ads Management',
       'Basic Google Ads Management'
     ],
@@ -219,8 +214,7 @@ export const SOCIAL_MEDIA_PACKAGES: SocialMediaPackage[] = [
       '12 Stories & Advertising Creatives',
       'Social Media Account Management',
       'Monthly Content & Marketing Strategy',
-      'Monthly Performance Report',
-      'Instagram, Facebook, WhatsApp, Threads, LinkedIn, YouTube, X (Twitter) & Pinterest Support'
+      'Monthly Performance Report'
     ],
     platforms: ['Instagram', 'Facebook', 'WhatsApp', 'Threads', 'LinkedIn', 'YouTube', 'X (Twitter)', 'Pinterest']
   },
@@ -250,8 +244,7 @@ export const SOCIAL_MEDIA_PACKAGES: SocialMediaPackage[] = [
       'Monthly Marketing Strategy',
       'Performance Analytics & Reporting',
       'Priority Support & Campaign Planning',
-      'Basic Customer Query Responses',
-      'Instagram, Facebook, WhatsApp, Threads, LinkedIn, YouTube, X (Twitter) & Pinterest Support'
+      'Basic Customer Query Responses'
     ],
     platforms: ['Instagram', 'Facebook', 'WhatsApp', 'Threads', 'LinkedIn', 'YouTube', 'X (Twitter)', 'Pinterest']
   }
