@@ -25,12 +25,14 @@ interface ProjectSpecificationsPageProps {
   packageData: SocialMediaPackage | null;
   onBack: () => void;
   onProceedToContact: (specSummary: string, packageName: string) => void;
+  onProceedToPayment?: (pkg: SocialMediaPackage) => void;
 }
 
 export const ProjectSpecificationsPage: React.FC<ProjectSpecificationsPageProps> = ({
   packageData,
   onBack,
-  onProceedToContact
+  onProceedToContact,
+  onProceedToPayment
 }) => {
   // Fallback to Premium Business if none selected
   const activePkg = packageData || SOCIAL_MEDIA_PACKAGES[4];
@@ -99,6 +101,15 @@ Please confirm slot availability and onboarding timeline!`;
           </div>
 
           <div className="flex items-center gap-2">
+            {onProceedToPayment && (
+              <button
+                onClick={() => onProceedToPayment(activePkg)}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white text-xs font-bold transition-all cursor-pointer shadow-sm"
+              >
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>Pay & Confirm Slot ({activePkg.price})</span>
+              </button>
+            )}
             <button
               onClick={handlePrintSpecs}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 text-xs font-mono transition-colors cursor-pointer"
@@ -431,6 +442,17 @@ Please confirm slot availability and onboarding timeline!`;
                   <span>Confirm Specifications & Book</span>
                   <Send className="w-3.5 h-3.5" />
                 </button>
+
+                {onProceedToPayment && (
+                  <button
+                    type="button"
+                    onClick={() => onProceedToPayment(activePkg)}
+                    className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-mono font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Proceed to Payment (REELWAY: +91 90843 24136)</span>
+                  </button>
+                )}
 
                 <button
                   type="button"

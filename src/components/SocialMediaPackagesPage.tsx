@@ -18,13 +18,15 @@ interface SocialMediaPackagesPageProps {
   onSelectPackage: (packageName: string) => void;
   onOpenConsultation: () => void;
   onOpenProjectSpecifications?: (pkg: SocialMediaPackage) => void;
+  onOpenPaymentPage?: (pkg: SocialMediaPackage) => void;
 }
 
 export const SocialMediaPackagesPage: React.FC<SocialMediaPackagesPageProps> = ({
   onBackToHome,
   onSelectPackage,
   onOpenConsultation,
-  onOpenProjectSpecifications
+  onOpenProjectSpecifications,
+  onOpenPaymentPage
 }) => {
   return (
     <div className="min-h-screen bg-white text-slate-800 pt-28 pb-20">
@@ -69,6 +71,7 @@ export const SocialMediaPackagesPage: React.FC<SocialMediaPackagesPageProps> = (
           onBackToHome();
         }}
         onOpenProjectSpecifications={onOpenProjectSpecifications}
+        onOpenPaymentPage={onOpenPaymentPage}
       />
     </div>
   );
