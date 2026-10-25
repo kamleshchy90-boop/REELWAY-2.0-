@@ -315,8 +315,8 @@ Please verify our transaction and initiate the creative onboarding protocol!`;
             <div className="w-full space-y-6">
               
               {/* Header Box */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md relative overflow-hidden">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono font-bold mb-3">
+              <div className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-md relative overflow-hidden">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono font-bold mb-3 mt-1">
                   <Lock className="w-3.5 h-3.5" />
                   <span>SECURE DIRECT PAYMENT GATEWAY</span>
                 </div>
