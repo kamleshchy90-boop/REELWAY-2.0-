@@ -33,7 +33,7 @@ interface NavbarProps {
   onNavigateContact: () => void;
   onSelectOffer?: (offerName: string, discount: string) => void;
   onOpenPackagesPage?: () => void;
-  currentPage?: 'home' | 'packages';
+  currentPage?: 'home' | 'packages' | 'specifications';
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 

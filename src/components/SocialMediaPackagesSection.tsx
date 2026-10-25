@@ -22,11 +22,13 @@ import { SOCIAL_MEDIA_PACKAGES, SMM_IMPORTANT_NOTES, SocialMediaPackage } from '
 interface SocialMediaPackagesSectionProps {
   onSelectPackage: (packageName: string) => void;
   onOpenConsultation?: () => void;
+  onOpenProjectSpecifications?: (pkg: SocialMediaPackage) => void;
 }
 
 export const SocialMediaPackagesSection: React.FC<SocialMediaPackagesSectionProps> = ({
   onSelectPackage,
-  onOpenConsultation
+  onOpenConsultation,
+  onOpenProjectSpecifications
 }) => {
   const [filterTier, setFilterTier] = useState<'all' | 'starter' | 'growth' | 'enterprise'>('all');
   const [showComparison, setShowComparison] = useState(false);
@@ -198,14 +200,20 @@ export const SocialMediaPackagesSection: React.FC<SocialMediaPackagesSectionProp
                 {/* Card Actions */}
                 <div className="space-y-2 pt-2">
                   <button
-                    onClick={() => onSelectPackage(`${pkg.fullName} (${pkg.price}/mo)`)}
+                    onClick={() => {
+                      if (onOpenProjectSpecifications) {
+                        onOpenProjectSpecifications(pkg);
+                      } else {
+                        onSelectPackage(`${pkg.fullName} (${pkg.price}/mo)`);
+                      }
+                    }}
                     className={`w-full py-3 rounded-xl font-display font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
                       isFeatured
                         ? 'bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white shadow-rose-600/20 hover:shadow-md'
                         : 'bg-slate-900 hover:bg-slate-800 text-white'
                     }`}
                   >
-                    <span>Get Started</span>
+                    <span>Project Specifications</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
 
@@ -264,10 +272,16 @@ export const SocialMediaPackagesSection: React.FC<SocialMediaPackagesSectionProp
                       </td>
                       <td className="p-4 text-center">
                         <button
-                          onClick={() => onSelectPackage(`${pkg.fullName} (${pkg.price}/mo)`)}
+                          onClick={() => {
+                            if (onOpenProjectSpecifications) {
+                              onOpenProjectSpecifications(pkg);
+                            } else {
+                              onSelectPackage(`${pkg.fullName} (${pkg.price}/mo)`);
+                            }
+                          }}
                           className="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-[11px] font-bold transition-colors cursor-pointer"
                         >
-                          Select
+                          Specifications
                         </button>
                       </td>
                     </tr>

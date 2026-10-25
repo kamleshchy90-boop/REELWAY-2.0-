@@ -11,16 +11,20 @@ import {
 } from 'lucide-react';
 import { SocialMediaPackagesSection } from './SocialMediaPackagesSection';
 
+import { SocialMediaPackage } from '../data/socialMediaPackagesData';
+
 interface SocialMediaPackagesPageProps {
   onBackToHome: () => void;
   onSelectPackage: (packageName: string) => void;
   onOpenConsultation: () => void;
+  onOpenProjectSpecifications?: (pkg: SocialMediaPackage) => void;
 }
 
 export const SocialMediaPackagesPage: React.FC<SocialMediaPackagesPageProps> = ({
   onBackToHome,
   onSelectPackage,
-  onOpenConsultation
+  onOpenConsultation,
+  onOpenProjectSpecifications
 }) => {
   return (
     <div className="min-h-screen bg-white text-slate-800 pt-28 pb-20">
@@ -64,6 +68,7 @@ export const SocialMediaPackagesPage: React.FC<SocialMediaPackagesPageProps> = (
           onOpenConsultation();
           onBackToHome();
         }}
+        onOpenProjectSpecifications={onOpenProjectSpecifications}
       />
     </div>
   );

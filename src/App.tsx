@@ -8,6 +8,7 @@ import { ProcessSection } from './components/ProcessSection';
 import { WhyReelwaySection } from './components/WhyReelwaySection';
 import { SocialMediaPackagesSection } from './components/SocialMediaPackagesSection';
 import { SocialMediaPackagesPage } from './components/SocialMediaPackagesPage';
+import { ProjectSpecificationsPage } from './components/ProjectSpecificationsPage';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { WhatsAppFloating } from './components/WhatsAppFloating';
@@ -15,9 +16,11 @@ import { ProjectCalculatorModal } from './components/ProjectCalculatorModal';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { PrivacyTermsModal } from './components/PrivacyTermsModal';
 import { ProjectItem } from './types';
+import { SocialMediaPackage } from './data/socialMediaPackagesData';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'packages'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'packages' | 'specifications'>('home');
+  const [selectedPackageForSpecs, setSelectedPackageForSpecs] = useState<SocialMediaPackage | null>(null);
   const [showreelOpen, setShowreelOpen] = useState(false);
   const [calculatorOpen, setCalculatorOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
@@ -48,6 +51,12 @@ export default function App() {
     navigateToContact(scopeSummary, packageName);
   };
 
+  const handleOpenSpecifications = (pkg: SocialMediaPackage) => {
+    setSelectedPackageForSpecs(pkg);
+    setCurrentPage('specifications');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const openWhatsApp = () => {
     const text = encodeURIComponent("Hi REELWAY team! Let's talk about scaling our creative content and marketing.");
     window.open(`https://wa.me/919084324136?text=${text}`, '_blank');
@@ -69,8 +78,24 @@ export default function App() {
         currentPage={currentPage}
       />
 
-      {/* Main Content Sections or Dedicated Packages Page */}
-      {currentPage === 'packages' ? (
+      {/* Main Content Sections or Dedicated Pages */}
+      {currentPage === 'specifications' ? (
+        <main className="flex-grow">
+          <ProjectSpecificationsPage
+            packageData={selectedPackageForSpecs}
+            onBack={() => {
+              setCurrentPage('home');
+              setTimeout(() => {
+                const pkgElem = document.getElementById('smm-packages');
+                if (pkgElem) pkgElem.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
+            onProceedToContact={(specSummary, pkgName) => {
+              navigateToContact(specSummary, pkgName);
+            }}
+          />
+        </main>
+      ) : currentPage === 'packages' ? (
         <main className="flex-grow">
           <SocialMediaPackagesPage
             onBackToHome={() => {
@@ -79,6 +104,7 @@ export default function App() {
             }}
             onSelectPackage={(pkg) => navigateToContact(undefined, pkg)}
             onOpenConsultation={() => navigateToContact('Free Consultation')}
+            onOpenProjectSpecifications={handleOpenSpecifications}
           />
         </main>
       ) : (
@@ -109,6 +135,7 @@ export default function App() {
           <SocialMediaPackagesSection
             onSelectPackage={(pkgName) => navigateToContact(undefined, pkgName)}
             onOpenConsultation={() => navigateToContact('Free Consultation')}
+            onOpenProjectSpecifications={handleOpenSpecifications}
           />
 
           {/* 13. Comprehensive Lead Generation Contact Form & Channels */}
