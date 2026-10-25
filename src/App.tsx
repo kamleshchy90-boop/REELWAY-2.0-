@@ -2,18 +2,12 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ShowreelModal } from './components/ShowreelModal';
-import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
 import { PortfolioSection } from './components/PortfolioSection';
-import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { ProcessSection } from './components/ProcessSection';
 import { WhyReelwaySection } from './components/WhyReelwaySection';
-import { FestivalOffersSection } from './components/FestivalOffersSection';
-import { PricingSection } from './components/PricingSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { FaqSection } from './components/FaqSection';
-import { BlogJournalSection } from './components/BlogJournalSection';
-import { FinalCtaSection } from './components/FinalCtaSection';
+import { SocialMediaPackagesSection } from './components/SocialMediaPackagesSection';
+import { SocialMediaPackagesPage } from './components/SocialMediaPackagesPage';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { WhatsAppFloating } from './components/WhatsAppFloating';
@@ -21,9 +15,9 @@ import { ProjectCalculatorModal } from './components/ProjectCalculatorModal';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { PrivacyTermsModal } from './components/PrivacyTermsModal';
 import { ProjectItem } from './types';
-import { CASE_STUDIES_DATA } from './data/reelwayData';
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<'home' | 'packages'>('home');
   const [showreelOpen, setShowreelOpen] = useState(false);
   const [calculatorOpen, setCalculatorOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
@@ -35,39 +29,17 @@ export default function App() {
   });
 
   const navigateToContact = (service?: string, pkg?: string) => {
+    if (currentPage !== 'home') {
+      setCurrentPage('home');
+    }
     if (service) setPrefilledService(service);
     if (pkg) setPrefilledPackage(pkg);
-    const contactElem = document.getElementById('contact');
-    if (contactElem) {
-      contactElem.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleOpenVideoFromCase = (videoUrl: string, title: string) => {
-    const cs = CASE_STUDIES_DATA.find(c => c.videoUrl === videoUrl || c.title === title);
-    if (cs) {
-      setSelectedProject({
-        id: cs.id,
-        title: cs.title,
-        client: cs.client,
-        category: 'commercials',
-        categoryLabel: cs.industry,
-        tag: 'CASE STUDY',
-        thumbnail: cs.heroImage,
-        videoPreviewUrl: cs.videoUrl || videoUrl,
-        aspectRatio: '16:9',
-        metrics: {
-          label: cs.results[0]?.label || 'ROI / Growth',
-          value: cs.results[0]?.metric || '+380%'
-        },
-        duration: '1:15',
-        year: '2026',
-        summary: cs.creativeSolution,
-        deliverables: cs.results.map(r => `${r.label}: ${r.metric}`)
-      });
-    } else {
-      setShowreelOpen(true);
-    }
+    setTimeout(() => {
+      const contactElem = document.getElementById('contact');
+      if (contactElem) {
+        contactElem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const handleApplyScope = (scopeSummary: string, packageName: string) => {
@@ -90,81 +62,71 @@ export default function App() {
         onOpenShowreel={() => setShowreelOpen(true)}
         onNavigateContact={() => navigateToContact()}
         onSelectOffer={(offerName, discount) => navigateToContact(undefined, `${offerName} (${discount})`)}
+        onOpenPackagesPage={() => {
+          setCurrentPage('packages');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        currentPage={currentPage}
       />
 
-      {/* Main Content Sections */}
-      <main className="flex-grow">
-        {/* 1. Hero Section with Video Showreel Player */}
-        <Hero
-          onOpenShowreel={() => setShowreelOpen(true)}
-          onOpenConsultation={() => navigateToContact('Free Consultation')}
-          onNavigateContact={() => navigateToContact()}
-        />
-
-        {/* 2. About REELWAY (Creative + Performance Synergy) */}
-        <AboutSection onNavigateContact={() => navigateToContact()} />
-
-        {/* 3. Core Capabilities & Services Arsenal (Fixes #services anchor links) */}
-        <ServicesSection onSelectService={(serviceTitle) => navigateToContact(serviceTitle)} />
-
-        {/* 4. Curated Portfolio & Work Reel + Before/After Slider */}
-        <PortfolioSection
-          onOpenProjectModal={(proj) => setSelectedProject(proj)}
-          onOpenShowreel={() => setShowreelOpen(true)}
-        />
-
-        {/* 5. Verified Case Studies (Challenge -> Strategy -> Creative Solution -> Campaign -> Results) */}
-        <CaseStudiesSection
-          onOpenVideo={handleOpenVideoFromCase}
-          onNavigateContact={() => navigateToContact()}
-        />
-
-        {/* 6. Agile 6-Step Growth Protocol (Discovery -> Script -> Create -> Animate -> Amplify -> Scale) */}
-        <ProcessSection />
-
-        {/* 7. Why REELWAY (6 Pillars) */}
-        <WhyReelwaySection onNavigateContact={() => navigateToContact()} />
-
-        {/* 8. Exclusive Festival Offers (Diwali, Navratri, Eid, Holi & Regional Brand Sprints) */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FestivalOffersSection
-            onClaimOffer={(offerName, discount) =>
-              navigateToContact(undefined, `${offerName} (${discount})`)
-            }
+      {/* Main Content Sections or Dedicated Packages Page */}
+      {currentPage === 'packages' ? (
+        <main className="flex-grow">
+          <SocialMediaPackagesPage
+            onBackToHome={() => {
+              setCurrentPage('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onSelectPackage={(pkg) => navigateToContact(undefined, pkg)}
+            onOpenConsultation={() => navigateToContact('Free Consultation')}
           />
-        </div>
+        </main>
+      ) : (
+        <main className="flex-grow">
+          {/* 1. Hero Section with Video Showreel Player */}
+          <Hero
+            onOpenShowreel={() => setShowreelOpen(true)}
+            onOpenConsultation={() => navigateToContact('Free Consultation')}
+            onNavigateContact={() => navigateToContact()}
+          />
 
-        {/* 9. Pricing Packages (START, GROW, SCALE - Custom Quotes) */}
-        <PricingSection
-          onSelectPackage={(pkgName) => navigateToContact(undefined, pkgName)}
-          onOpenCalculator={() => setCalculatorOpen(true)}
-        />
+          {/* 2. Core Capabilities & Services Arsenal */}
+          <ServicesSection onSelectService={(serviceTitle) => navigateToContact(serviceTitle)} />
 
-        {/* 9. Testimonials (Founder & CMO Reviews) */}
-        <TestimonialsSection />
+          {/* 4. Curated Portfolio & Work Reel + Before/After Slider */}
+          <PortfolioSection
+            onOpenProjectModal={(proj) => setSelectedProject(proj)}
+            onOpenShowreel={() => setShowreelOpen(true)}
+          />
 
-        {/* 10. FAQ Accordion */}
-        <FaqSection onNavigateContact={() => navigateToContact()} />
+          {/* 5. Agile 6-Step Growth Protocol (Discovery -> Script -> Create -> Animate -> Amplify -> Scale) */}
+          <ProcessSection />
 
-        {/* 11. The REELWAY Journal (Blog) */}
-        <BlogJournalSection />
+          {/* 7. Why REELWAY (6 Pillars) */}
+          <WhyReelwaySection onNavigateContact={() => navigateToContact()} />
 
-        {/* 12. Final High-Impact CTA */}
-        <FinalCtaSection
-          onStartProject={() => navigateToContact()}
-          onBookConsultation={() => navigateToContact('Free Consultation')}
-          onChatWhatsApp={openWhatsApp}
-        />
+          {/* 11. Social Media Marketing Packages */}
+          <SocialMediaPackagesSection
+            onSelectPackage={(pkgName) => navigateToContact(undefined, pkgName)}
+            onOpenConsultation={() => navigateToContact('Free Consultation')}
+          />
 
-        {/* 13. Comprehensive Lead Generation Contact Form & Channels */}
-        <ContactSection
-          prefilledService={prefilledService}
-          prefilledPackage={prefilledPackage}
-        />
-      </main>
+          {/* 13. Comprehensive Lead Generation Contact Form & Channels */}
+          <ContactSection
+            prefilledService={prefilledService}
+            prefilledPackage={prefilledPackage}
+          />
+        </main>
+      )}
 
       {/* Global Footer */}
-      <Footer onOpenLegal={(type) => setLegalModal({ isOpen: true, type })} />
+      <Footer 
+        onOpenLegal={(type) => setLegalModal({ isOpen: true, type })} 
+        onOpenPackagesPage={() => {
+          setCurrentPage('packages');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
 
       {/* Floating Action WhatsApp Widget */}
       <WhatsAppFloating />

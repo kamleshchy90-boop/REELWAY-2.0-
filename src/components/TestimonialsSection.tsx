@@ -4,9 +4,7 @@ import {
   Quote, 
   CheckCircle2, 
   ChevronLeft, 
-  ChevronRight, 
-  Sparkles,
-  Award
+  ChevronRight
 } from 'lucide-react';
 import { TESTIMONIALS_DATA } from '../data/reelwayData';
 
@@ -128,19 +126,6 @@ export const TestimonialsSection: React.FC = () => {
               aria-label={`Go to testimonial ${idx + 1}`}
             />
           ))}
-        </div>
-
-        {/* Full Testimonial List Carousel Card for Extra Depth */}
-        <div className="mt-8 p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Award className="w-5 h-5 text-rose-600" />
-            <span className="text-xs font-mono text-slate-700">
-              4.9/5 Average Rating across 500+ Video & Digital Marketing Campaigns
-            </span>
-          </div>
-          <span className="text-xs font-mono text-slate-500 hidden sm:inline">
-            Verified Partner Reviews
-          </span>
         </div>
 
       </div>

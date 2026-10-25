@@ -15,24 +15,20 @@ import { ReelwayLogo } from './ReelwayLogo';
 
 interface FooterProps {
   onOpenLegal?: (type: 'privacy' | 'terms') => void;
+  onOpenPackagesPage?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenPackagesPage }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const navLinks = [
-    { label: 'About Agency', href: '#about' },
     { label: 'Services Arsenal', href: '#services' },
     { label: 'Selected Work', href: '#portfolio' },
-    { label: 'Case Studies', href: '#cases' },
     { label: 'The Protocol', href: '#process' },
     { label: 'Why REELWAY', href: '#why-us' },
-    { label: 'Pricing Quotes', href: '#pricing' },
-    { label: 'Client Reviews', href: '#testimonials' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Journal', href: '#journal' },
+    { label: 'SMM Packages', href: '#smm-packages' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -106,7 +102,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="hover:text-rose-600 transition-colors text-slate-600"
+                    onClick={(e) => {
+                      if (link.href === '#smm-packages' && onOpenPackagesPage) {
+                        const target = document.querySelector(link.href);
+                        if (!target) {
+                          e.preventDefault();
+                          onOpenPackagesPage();
+                        }
+                      }
+                    }}
+                    className="hover:text-rose-600 transition-colors text-slate-600 cursor-pointer"
                   >
                     {link.label}
                   </a>

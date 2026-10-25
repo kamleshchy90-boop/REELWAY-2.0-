@@ -1,8 +1,8 @@
 import { ProjectItem, CaseStudy, ServiceItem, ProcessStep, PricingPackage, TestimonialItem, FaqItem, BlogArticle } from '../types';
 
 export const HERO_STATS = [
-  { value: '500+', label: 'Campaigns Delivered', sub: 'Across 28 Countries' },
-  { value: '180M+', label: 'Organic & Paid Views', sub: 'Generated for Clients' },
+  { value: '50+', label: 'Campaigns Delivered', sub: 'Across 28 Countries' },
+  { value: '18M+', label: 'Organic & Paid Views', sub: 'Generated for Clients' },
   { value: '4.2x', label: 'Average Client ROAS', sub: 'On Performance Media' },
   { value: '98.7%', label: 'Client Retention Rate', sub: 'Long-term Partnerships' },
 ];

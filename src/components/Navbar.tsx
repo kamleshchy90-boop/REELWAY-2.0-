@@ -32,13 +32,17 @@ interface NavbarProps {
   onOpenShowreel: () => void;
   onNavigateContact: () => void;
   onSelectOffer?: (offerName: string, discount: string) => void;
+  onOpenPackagesPage?: () => void;
+  currentPage?: 'home' | 'packages';
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   onOpenConsultation, 
   onOpenShowreel,
   onNavigateContact,
-  onSelectOffer
+  onSelectOffer,
+  onOpenPackagesPage,
+  currentPage = 'home'
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,15 +74,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const navLinks = [
-    { label: 'About', href: '#about' },
+  const navLinks: { label: string; href: string; isSpecialOffer?: boolean }[] = [
     { label: 'Services', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Case Studies', href: '#cases' },
-    { label: 'Offers', href: '#festival-offers', isSpecialOffer: true },
     { label: 'Why Us', href: '#why-us' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Journal', href: '#journal' },
+    { label: 'SMM Packages', href: '#smm-packages' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -89,6 +89,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
+    } else if (href === '#smm-packages' && onOpenPackagesPage) {
+      onOpenPackagesPage();
     }
   };
 
